@@ -1,0 +1,43 @@
+@import "./themes";
+
+.app-title {
+    &-light {
+      color: $light-text;
+    }
+  
+    &-dark {
+      color: $dark-text;
+    }
+  
+    &-blue {
+      color: $blue-text;
+    }
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+    .theme-button {
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+  
+      &-light {
+        background: $light-background;
+        color: $light-text;
+      }
+
+      &-dark {
+        background: $dark-background;
+        color: $dark-text;
+      }
+
+      &-blue {
+        background: $blue-background;
+        color: $blue-text;
+      }
+  
+    }
+}  
