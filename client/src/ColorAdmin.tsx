@@ -19,8 +19,10 @@ function App() {
         justifyContent: 'center',
         bgcolor: 'background.default',
         color: 'text.primary',
-        borderRadius: 1,
-        p: 3,
+        // borderRadius: 1,
+        p: 0,
+        height: '100vh', // Set the height to 100% of the viewport height
+        // backgroundColor: 'blue', // Replace with your desired background color
       }}
     >
       {theme.palette.mode} mode
@@ -31,5 +33,32 @@ function App() {
   );
 }
 
+export default function ToggleColorMode() {
+  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
 
-export default App;
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
+}

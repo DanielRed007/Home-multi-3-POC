@@ -1,9 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './App';
+import { StyledEngineProvider } from '@mui/material';
+import ColorAdmin from './ColorAdmin';
+
+
 
 createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <StyledEngineProvider injectFirst>
+      <ColorAdmin />
+    </StyledEngineProvider>
   </React.StrictMode>,
 );
